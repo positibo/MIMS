@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "Server=.\sqlexpress;Database=MIMSDatabase;Trusted_Connection=True;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Entities -Context "DataContext"

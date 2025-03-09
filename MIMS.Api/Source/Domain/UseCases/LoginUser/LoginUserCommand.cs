@@ -12,12 +12,12 @@ namespace MIMS.Api.Source.Domain.UseCases.LoginUser
 
         public LoginUserCommand(LoginUserRequest request) => Request = request;
 
-        public class RequestHandler : IRequestHandler<LoginUserCommand, LoginUserResponse>
+        public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, LoginUserResponse>
         {
             private readonly DataContext context;
             private readonly IJwtService jwtService;
 
-            public RequestHandler(DataContext context, IJwtService jwtService) 
+            public LoginUserCommandHandler(DataContext context, IJwtService jwtService) 
             {
                 this.context = context;
                 this.jwtService = jwtService;

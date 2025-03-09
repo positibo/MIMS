@@ -2,7 +2,7 @@
 using MIMS.Api.Source.Domain.Entiities;
 using MIMS.Api.Source.Infrastructure.Data;
 
-namespace MIMS.Api.Source.Domain.UseCases.V1.RegisterUser
+namespace MIMS.Api.Source.Domain.UseCases.RegisterUser
 {
     public class RegisterUserCommand : IRequest<Unit>
     {

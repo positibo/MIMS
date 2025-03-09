@@ -11,12 +11,12 @@ namespace MIMS.Api.Source.Domain.UseCases.V1.CreateProduct
 
         public CreateProductCommand(CreateProductRequest createProductRequest) => CreateProductRequest = createProductRequest;
 
-        private class RequestHandler : IRequestHandler<CreateProductCommand, CreateProductResponse>
+        public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, CreateProductResponse>
         {
             private readonly DataContext context;
             private readonly IMapper mapper;
 
-            public RequestHandler(DataContext context, IMapper mapper)
+            public CreateProductCommandHandler(DataContext context, IMapper mapper)
             {
                 this.context = context;
                 this.mapper = mapper;

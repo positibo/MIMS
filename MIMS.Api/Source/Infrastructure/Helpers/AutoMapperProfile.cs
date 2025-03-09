@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MIMS.Api.Source.Domain.Entiities;
 using MIMS.Api.Source.Domain.UseCases.V1.CreateProduct;
-using MIMS.Api.Source.Domain.UseCases.V1.GetAllProducts;
 
 namespace MIMS.Api.Source.Infrastructure.Helpers
 {

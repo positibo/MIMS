@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using MIMS.Api.Source.Domain.UseCases.V1.LoginUser;
-using MIMS.Api.Source.Domain.UseCases.V1.RegisterUser;
+using MIMS.Api.Source.Domain.UseCases.LoginUser;
+using MIMS.Api.Source.Domain.UseCases.RegisterUser;
 
 namespace MIMS.Api.Source.Domain.Controllers
 {
@@ -20,7 +20,5 @@ namespace MIMS.Api.Source.Domain.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Login([FromBody] RegisterUserRequest request) =>
             Ok(await mediator.Send(new RegisterUserCommand(request)));
-
-        //_logger.LogInformation("User {Username} successfully authenticated", username);
     }
 }

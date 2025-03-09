@@ -4,7 +4,7 @@ using MIMS.Api.Source.Domain.BusinessRules;
 using MIMS.Api.Source.Infrastructure.Data;
 using MIMS.Api.Source.Infrastructure.Helpers;
 
-namespace MIMS.Api.Source.Domain.UseCases.V1.LoginUser
+namespace MIMS.Api.Source.Domain.UseCases.LoginUser
 {
     public class LoginUserCommand : IRequest<LoginUserResponse>
     {

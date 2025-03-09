@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MIMS.Api.Source.Domain.UseCases.RegisterUser
+namespace MIMS.Api.Source.Domain.UseCases.V1.RegisterUser
 {
     public class RegisterUserRequest
     {

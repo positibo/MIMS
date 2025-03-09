@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MIMS.Api.Source.Domain.Entiities;
-using MIMS.Api.Source.Domain.UseCases.CreateProduct;
-using MIMS.Api.Source.Domain.UseCases.GetAllProducts;
+using MIMS.Api.Source.Domain.UseCases.V1.CreateProduct;
+using MIMS.Api.Source.Domain.UseCases.V1.GetAllProducts;
 
 namespace MIMS.Api.Source.Infrastructure.Helpers
 {
@@ -9,7 +9,8 @@ namespace MIMS.Api.Source.Infrastructure.Helpers
     {
         public AutoMapperProfile()
         {
-            CreateMap<Product, GetAllProductsResponse>();
+            CreateMap<Product, Domain.UseCases.V1.GetAllProducts.GetAllProductsResponse>();
+            CreateMap<Product, Domain.UseCases.V2.GetAllProducts.GetAllProductsResponse>();
             CreateMap<CreateProductRequest, Product>();
             CreateMap<Product, CreateProductResponse>();
         }

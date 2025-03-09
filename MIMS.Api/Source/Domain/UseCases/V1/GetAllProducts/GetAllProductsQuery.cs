@@ -4,7 +4,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MIMS.Api.Source.Infrastructure.Data;
 
-namespace MIMS.Api.Source.Domain.UseCases.GetAllProducts
+namespace MIMS.Api.Source.Domain.UseCases.V1.GetAllProducts
 {
     public class GetAllProductsQuery : IRequest<List<GetAllProductsResponse>>
     {

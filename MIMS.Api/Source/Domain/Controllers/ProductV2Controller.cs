@@ -6,18 +6,18 @@ using MIMS.Api.Source.Domain.UseCases.V1.CreateProduct;
 namespace MIMS.Api.Source.Domain.Controllers
 {
     [Authorize]
-    [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/product")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductV2Controller : ControllerBase
     {
         private readonly IMediator mediator;
 
-        public ProductController(IMediator mediator) => this.mediator = mediator;
+        public ProductV2Controller(IMediator mediator) => this.mediator = mediator;
 
         [HttpGet]
         public async Task<IActionResult> GetProducts() => 
-            Ok(await mediator.Send(new UseCases.V1.GetAllProducts.GetAllProductsQuery()));
+            Ok(await mediator.Send(new UseCases.V2.GetAllProducts.GetAllProductsQuery()));
 
         [HttpPost]
         public async Task<IActionResult> AddProduct([FromBody] CreateProductRequest request) =>

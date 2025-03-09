@@ -2,13 +2,13 @@
 using MIMS.Api.Source.Domain.Entiities;
 using MIMS.Api.Source.Infrastructure.Data;
 
-namespace MIMS.Api.Source.Domain.UseCases.RegisterUser
+namespace MIMS.Api.Source.Domain.UseCases.V1.RegisterUser
 {
     public class RegisterUserCommand : IRequest<Unit>
     {
         public RegisterUserRequest Request { get; set; }
 
-        public RegisterUserCommand(RegisterUserRequest request) => this.Request = request;
+        public RegisterUserCommand(RegisterUserRequest request) => Request = request;
 
         public class RequestHandler : IRequestHandler<RegisterUserCommand, Unit>
         {

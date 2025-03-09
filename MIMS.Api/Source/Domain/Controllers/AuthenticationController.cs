@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using MIMS.Api.Source.Domain.UseCases.LoginUser;
-using MIMS.Api.Source.Domain.UseCases.RegisterUser;
+using MIMS.Api.Source.Domain.UseCases.V1.LoginUser;
+using MIMS.Api.Source.Domain.UseCases.V1.RegisterUser;
 
 namespace MIMS.Api.Source.Domain.Controllers
 {

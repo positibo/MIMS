@@ -4,13 +4,13 @@ using MIMS.Api.Source.Domain.BusinessRules;
 using MIMS.Api.Source.Infrastructure.Data;
 using MIMS.Api.Source.Infrastructure.Helpers;
 
-namespace MIMS.Api.Source.Domain.UseCases.LoginUser
+namespace MIMS.Api.Source.Domain.UseCases.V1.LoginUser
 {
     public class LoginUserCommand : IRequest<LoginUserResponse>
     {
         public LoginUserRequest Request { get; set; }
 
-        public LoginUserCommand(LoginUserRequest request) => this.Request = request;
+        public LoginUserCommand(LoginUserRequest request) => Request = request;
 
         public class RequestHandler : IRequestHandler<LoginUserCommand, LoginUserResponse>
         {
@@ -36,7 +36,7 @@ namespace MIMS.Api.Source.Domain.UseCases.LoginUser
                     throw new UnauthorizedException();
                 }
 
-                var token = this.jwtService.GenerateToken(user);
+                var token = jwtService.GenerateToken(user);
                 return new LoginUserResponse { Id = user.Id, Username = user.Username, Token = token };
 
             }

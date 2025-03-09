@@ -3,13 +3,13 @@ using MediatR;
 using MIMS.Api.Source.Domain.Entiities;
 using MIMS.Api.Source.Infrastructure.Data;
 
-namespace MIMS.Api.Source.Domain.UseCases.CreateProduct
+namespace MIMS.Api.Source.Domain.UseCases.V1.CreateProduct
 {
     public class CreateProductCommand : IRequest<CreateProductResponse>
     {
         public CreateProductRequest CreateProductRequest { get; set; }
 
-        public CreateProductCommand(CreateProductRequest createProductRequest) => this.CreateProductRequest = createProductRequest;
+        public CreateProductCommand(CreateProductRequest createProductRequest) => CreateProductRequest = createProductRequest;
 
         private class RequestHandler : IRequestHandler<CreateProductCommand, CreateProductResponse>
         {

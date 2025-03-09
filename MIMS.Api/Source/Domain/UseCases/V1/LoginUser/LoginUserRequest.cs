@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MIMS.Api.Source.Domain.UseCases.LoginUser
+namespace MIMS.Api.Source.Domain.UseCases.V1.LoginUser
 {
     public class LoginUserRequest
     {

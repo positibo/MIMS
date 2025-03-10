@@ -29,11 +29,15 @@ A RESTful API built using ASP.NET Core with Clean Architecture, CQRS, Mediator p
 
 - The ParentPackagingID allows us to represent hierarchical relationships between packaging items (e.g., a box within another box).
 
-- create.table.script - This script create the tables.
-- insert.table.script - This script inserts the data.
-- product.query.script - This Recursive Query for fetches the product with the packaging Hierarchy.
-- packaging.query.script - This query fetches the packaging associated with a specific item using a JOIN between Packaging and Items.
-- indexing.script - Applied indexing for ProductID and PackagingID in the Packaging and Items tables for efficient queries.
+- Run the following db scripts:
+- 1. create.table.script - This script create the tables.
+- 2. insert.table.script - This script inserts the data.
+- 3. indexing.script - Applied indexing for ProductID and PackagingID in the Packaging and Items tables for efficient queries.
+
+- Queries to fetch products and packaging details
+- product.query - This Recursive Query for fetches the product with the packaging Hierarchy.
+- packaging.query - This query fetches the packaging associated with a specific item using a JOIN between Packaging and Items.
+
 
 
 

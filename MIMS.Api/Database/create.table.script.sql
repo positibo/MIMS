@@ -1,0 +1,77 @@
+﻿USE [MIMSDatabase]
+GO
+/****** Object:  Table [dbo].[Items]    Script Date: 10/03/2025 9:53:32 am ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Items](
+	[ItemID] [int] IDENTITY(1,1) NOT NULL,
+	[ItemName] [nvarchar](255) NOT NULL,
+	[PackagingID] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ItemID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Packaging]    Script Date: 10/03/2025 9:53:32 am ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Packaging](
+	[PackagingID] [int] IDENTITY(1,1) NOT NULL,
+	[PackagingType] [nvarchar](50) NOT NULL,
+	[ParentPackagingID] [int] NULL,
+	[ProductID] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[PackagingID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Products]    Script Date: 10/03/2025 9:53:32 am ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Products](
+	[ProductID] [int] IDENTITY(1,1) NOT NULL,
+	[ProductName] [nvarchar](255) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ProductID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 10/03/2025 9:53:32 am ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Username] [varchar](255) NOT NULL,
+	[PasswordHash] [varchar](255) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Items]  WITH CHECK ADD  CONSTRAINT [FK_Item_Packaging] FOREIGN KEY([PackagingID])
+REFERENCES [dbo].[Packaging] ([PackagingID])
+GO
+ALTER TABLE [dbo].[Items] CHECK CONSTRAINT [FK_Item_Packaging]
+GO
+ALTER TABLE [dbo].[Packaging]  WITH CHECK ADD  CONSTRAINT [FK_Packaging_ParentPackaging] FOREIGN KEY([ParentPackagingID])
+REFERENCES [dbo].[Packaging] ([PackagingID])
+GO
+ALTER TABLE [dbo].[Packaging] CHECK CONSTRAINT [FK_Packaging_ParentPackaging]
+GO
+ALTER TABLE [dbo].[Packaging]  WITH CHECK ADD  CONSTRAINT [FK_Packaging_Product] FOREIGN KEY([ProductID])
+REFERENCES [dbo].[Products] ([ProductID])
+GO
+ALTER TABLE [dbo].[Packaging] CHECK CONSTRAINT [FK_Packaging_Product]
+GO

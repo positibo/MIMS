@@ -33,9 +33,7 @@ A RESTful API built using ASP.NET Core with Clean Architecture, CQRS, Mediator p
 - insert.table.script - This script inserts the data.
 - product.query.script - This Recursive Query for fetches the product with the packaging Hierarchy.
 - packaging.query.script - This query fetches the packaging associated with a specific item using a JOIN between Packaging and Items.
+- indexing.script - Applied indexing for ProductID and PackagingID in the Packaging and Items tables for efficient queries.
 
-- Consider indexing ProductID and PackagingID in the Packaging and Items tables for efficient queries.
-- CREATE INDEX IX_Packaging_ProductID ON Packaging(ProductID);
-- CREATE INDEX IX_Items_PackagingID ON Items(PackagingID);
 
 

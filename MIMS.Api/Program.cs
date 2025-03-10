@@ -77,6 +77,7 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+builder.Services.AddMemoryCache();
 builder.Services.AddInMemoryRateLimiting();
 builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
@@ -94,7 +95,12 @@ builder.Services.AddLogging(loggingBuilder =>
     loggingBuilder.AddSerilog();
 });
 
+builder.Services
+        .AddLogging(configure => configure.AddConsole());
+
 var app = builder.Build();
+
+app.ConfigureExceptionHandler(app.Logger);
 
 if (app.Environment.IsDevelopment())
 {
